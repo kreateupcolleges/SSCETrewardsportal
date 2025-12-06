@@ -42,7 +42,7 @@
           <select id="internalSelect"
             class="w-full border rounded-lg px-3 py-2 h-12 focus:ring-2 focus:ring-indigo-400 focus:outline-none">
             <!-- <option value="IP2">IP2</option> -->
-            <option value="IP1">IP</option>
+            <option value="IP1">IP1</option>
           </select>
         </div>
         <div>
@@ -203,17 +203,16 @@
     IP2: { id: "<DUMMY_OR_REAL_ID_FOR_IP2>", name: "SSCET_1styear_IP2_RewardsSplit" }
   };
   CONFIG.INTERNAL_MARKS_SHEETS = {
-    IP1: { "Mech": { id: "<DUMMY_OR_REAL_ID_FOR_IP2_MECH>", name: "Mech_Internal_IP2" } },
-    // IP1: {
-    //   "Agricultural Engineering": { id: "1CGE8KivSD-Rt-LjBm21ln3VOPsfuK1_rw87eH7i0JBk", name: "Agricultural Engineering" },
-    //   "Artifical Intelligence and Data Science": { id: "1KBx6BkJVBx4pJvn5rMSUw4Uql-Lvkp1r8V13EIIIUuM", name: "Artifical Intelligence and Data Science" },
-    //   "Biomedical Engineering": { id: "1t4vis7wBV7GsfFSMIV3zjyGS3m9NXOWCt-hNXKRabMA", name: "Biomedical Engineering" },
-    //   "Computer Science and Engineering": { id: "1bHrKLS2-sDcTKaQ3MaNN4BzHlrLM2Bb0waE839XGeAY", name: "Computer Science and Engineering" },
-    //   "Cyber Security": { id: "1REu8iGo0gUzLfKlmLpU4Rl1ffdWwp38ar7Hu0-BUU8s", name: "Cyber Security" },
-    //   "Electronics and Communication Engineering": { id: "1OIuwHVlEYxxC6ZF-H6A264qU0utpYS72o_1PHZGn5Tc", name: "Electronics and Communication Engineering" },
-    //   "Information Technology": { id: "1ZhgQe-wUxZYGwb5GT8wtVRcXIP6uO8vs-j3LCE2TLpo", name: "Information Technology" },
-    //   "Mechanical Engineering": { id: "1ZhgQe-wUxZYGwb5GT8wtVRcXIP6uO8vs-j3LCE2TLpo", name: "Mechanical Engineering" }
-    // },
+    IP1: {
+      "Agricultural Engineering": { id: "1nOk9cwuxU06v7nAcJCq5RppM8iuCwfokIjN_qcPQOhw", name: "Agricultural Engineering" },
+      "Artificial Intelligence and Data Science": { id: "1CWRTrVa0C1qJft_aq8qImPyqmESChfM_KxewZGzvKpY", name: "Artificial Intelligence and Data Science" },
+      "Biomedical Engineering": { id: "125EKF9BUqHlBqIcYIIFXszaweLg__THK3sr5i1YVDK0", name: "Biomedical Engineering" },
+      "Computer Science and Engineering": { id: "1OmG4e72RpzUWMj2DX9RUf7iyUlADV6Bllmoa7qCfrMc", name: "Computer Science and Engineering" },
+      "Cyber Security": { id: "1ADvM2-9N_E2wEjyNlx702lOKMBUE1Qp2kDIh5WAJF20", name: "Cyber Security" },
+      "Electronics and Communication Engineering": { id: "1jZ2nIGdK5Ubmxxhjkvtec9opd32CpBJDqipIrnX2mmM", name: "Electronics and Communication Engineering" },
+      "Information Technology": { id: "1jmsmQU9el51OV1yi8U82z-6hGVCdwvcK2WplHF7AmX4", name: "Information Technology" },
+      "Mechanical Engineering": { id: "1pBlQ6pSACsRLUDDly-Gi1MdhjkdrDTQTDO0KAMXMYLs", name: "Mechanical Engineering" }
+    },
     IP2: { "Mech": { id: "<DUMMY_OR_REAL_ID_FOR_IP2_MECH>", name: "Mech_Internal_IP2" } }
   };
 
@@ -233,7 +232,8 @@
   }
 
   // --- Hardcoded subject definitions (place after CONFIG) ---
-  const deptSubjects = {
+  /* All departments mapping (full) */
+const deptSubjects = {
   "Agricultural Engineering": [
     { code: "23MA204", type: "Theory" },
     { code: "23AG402", type: "Theory" },
@@ -314,7 +314,7 @@
     { code: "23ME405", type: "Lab" }
   ]
 };
-  const maxMap = { Theory: 16, "Lab+Theory" :20, Lab: 20 };
+  const maxMap = { Theory: 16, "Theory + Lab" :20, Lab: 20 };
 
   let activeInternal = CONFIG.defaultInternal || "IP1";
   let students = [], headers = [], headerMap = {};
@@ -544,7 +544,7 @@
 
   // --- replaced loadInternalMarksForStudent (hardcoded-first, fallback heuristics) ---
 // Replace existing function with this full function
-async function loadInternalMarksForStudent(internalKey, department, registerNo, rewardPoints) {
+async function loadInternalMarksForStudent(internalKey, department, SINNumber, rewardPoints) {
   // reset UI
   internalMarksContainer.classList.add("hidden");
   internalMarksThead.innerHTML = "";
@@ -593,16 +593,16 @@ async function loadInternalMarksForStudent(internalKey, department, registerNo, 
     console.log("[DEBUG] sample mapped row[1]:", rows[1]);
 
     // find register header
-    const regKey = cols.find(c => normalizeLabel(c).includes("register") || normalizeLabel(c).includes("reg") || normalizeLabel(c).includes("roll"));
+    const regKey = cols.find(c => normalizeLabel(c).includes("sin number") || normalizeLabel(c).includes("sin") || normalizeLabel(c).includes("sin number"));
     if (!regKey) {
       internalMarksNote.innerHTML = `<span class="text-red-600">This internal sheet has no Register column to match student.</span>`;
       return;
     }
 
     // locate student row
-    const studentRow = rows.find(r => String(r[regKey]).toLowerCase().trim() === (registerNo || "").toLowerCase().trim());
+    const studentRow = rows.find(r => String(r[regKey]).toLowerCase().trim() === (SINNumber || "").toLowerCase().trim());
     if (!studentRow) {
-      internalMarksNote.innerHTML = `<span class="text-yellow-700">No internal marks row found for Sin number: ${registerNo}</span>`;
+      internalMarksNote.innerHTML = `<span class="text-yellow-700">No internal marks row found for Sin number: ${SINNumber}</span>`;
       internalMarksContainer.classList.remove("hidden");
       return;
     }
@@ -863,7 +863,7 @@ async function loadInternalMarksForStudent(internalKey, department, registerNo, 
       });
     } else {
       internalMarksContainer.classList.add("hidden");
-      internalMarksNote.textContent = "To view internal marks, select Department and enter Register No.";
+      internalMarksNote.textContent = "To view internal marks, select Department and enter SIN No.";
     }
   }
 
