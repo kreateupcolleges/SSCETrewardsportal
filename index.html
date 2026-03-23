@@ -12,7 +12,7 @@
     <div class="container mx-auto flex items-center justify-between px-6 py-4">
       <div class="flex items-center space-x-3">
         <img src="sscetlogo.png" alt="SSCET Logo" class="h-24 w-24">
-        <h1 class="text-2xl font-bold text-indigo-700">SSCET Reward Points Portal</h1>
+        <h1 class="text-2xl font-bold text-indigo-700">SSCET Reward Points Portal Bactch 2024 to 2028</h1>
       </div>
     </div>
   </header>
@@ -42,7 +42,7 @@
           <select id="internalSelect"
             class="w-full border rounded-lg px-3 py-2 h-12 focus:ring-2 focus:ring-indigo-400 focus:outline-none">
             <!-- <option value="IP2">IP2</option> -->
-            <option value="IP1">IP1</option>
+            <option value="IP1">S4 IP1</option>
           </select>
         </div>
         <div>
@@ -199,19 +199,19 @@
   /***** CONFIG *****/
   const CONFIG = { defaultInternal: "IP1" };
   const SHEETS = {
-    IP1: { id: "1qsLRUzk7_8fEVfxL5n6Y_qfCsgunivNgqh-YZQnTfvs", name: "SSCET_2024-2028_S3_IP1&2_RewardsSplit" },
+    IP1: { id: "10c1LPceFR82h1mv-g4n_APd3TaU7k74znR5TtlrNVL4", name: "SSCET_2024-2028_S4_IP1_RewardsSplit" },
     IP2: { id: "<DUMMY_OR_REAL_ID_FOR_IP2>", name: "SSCET_1styear_IP2_RewardsSplit" }
   };
   CONFIG.INTERNAL_MARKS_SHEETS = {
     IP1: {
-      "Agricultural Engineering": { id: "1nOk9cwuxU06v7nAcJCq5RppM8iuCwfokIjN_qcPQOhw", name: "Agricultural Engineering" },
-      "Artificial Intelligence and Data Science": { id: "1CWRTrVa0C1qJft_aq8qImPyqmESChfM_KxewZGzvKpY", name: "Artificial Intelligence and Data Science" },
-      "Biomedical Engineering": { id: "125EKF9BUqHlBqIcYIIFXszaweLg__THK3sr5i1YVDK0", name: "Biomedical Engineering" },
-      "Computer Science and Engineering": { id: "1OmG4e72RpzUWMj2DX9RUf7iyUlADV6Bllmoa7qCfrMc", name: "Computer Science and Engineering" },
-      "Cyber Security": { id: "1ADvM2-9N_E2wEjyNlx702lOKMBUE1Qp2kDIh5WAJF20", name: "Cyber Security" },
-      "Electronics and Communication Engineering": { id: "1jZ2nIGdK5Ubmxxhjkvtec9opd32CpBJDqipIrnX2mmM", name: "Electronics and Communication Engineering" },
-      "Information Technology": { id: "1jmsmQU9el51OV1yi8U82z-6hGVCdwvcK2WplHF7AmX4", name: "Information Technology" },
-      "Mechanical Engineering": { id: "1pBlQ6pSACsRLUDDly-Gi1MdhjkdrDTQTDO0KAMXMYLs", name: "Mechanical Engineering" }
+      "Agricultural Engineering": { id: "1OJIUoGGqmVmMIp1UWO02DA2UuUVt3AqQpOr4lMSzRA0", name: "Agricultural Engineering" },
+      "Artificial Intelligence and Data Science": { id: "1fbgyPBtuESwVzf1SAcqsvSE0IbBaO6gL3QNYnpyjop0", name: "Artificial Intelligence and Data Science" },
+      "Biomedical Engineering": { id: "12ZZBMPPo9ZlulCyc2SzL9-F9ugySwGtJMZhI9t33mdY", name: "Biomedical Engineering" },
+      "Computer Science and Engineering": { id: "1vnUxmO_yryA8HmINZxoYMMV1IkTtdYfwAIEImX7FuBg", name: "Computer Science and Engineering" },
+      "Cyber Security": { id: "1oEebpFmCLGjw4h8EqftglT7id1OWGaPRhoa0FmxAZ4U", name: "Cyber Security" },
+      "Electronics and Communication Engineering": { id: "1_JpXr-XTvpF0UsjGqTDPW9EremuT0D0NQaMhMMrnJpg", name: "Electronics and Communication Engineering" },
+      "Information Technology": { id: "1m6M7gKH_P1nPpIc6NCmwRvP2GLJWhjOpjLQowXKKgEw", name: "Information Technology" },
+      "Mechanical Engineering": { id: "1t7RTgIHCF1zwdG630xheYP4lUMInd6jjM9PhMYLszNk", name: "Mechanical Engineering" }
     },
     IP2: { "Mech": { id: "<DUMMY_OR_REAL_ID_FOR_IP2_MECH>", name: "Mech_Internal_IP2" } }
   };
@@ -234,84 +234,95 @@
   // --- Hardcoded subject definitions (place after CONFIG) ---
   /* All departments mapping (full) */
 const deptSubjects = {
-  "Agricultural Engineering": [
-    { code: "23MA204", type: "Theory" },
-    { code: "23AG402", type: "Theory" },
-    { code: "23ME303", type: "Theory" },
-    { code: "23AG301", type: "Theory" },
-    { code: "23AG403", type: "Theory + Lab" },
-    { code: "23AG404", type: "Theory + Lab" },
-    { code: "23AG405", type: "Lab" },
-    { code: "23AG406", type: "Lab" }
+   "Artificial Intelligence and Data Science": [
+    { code: "23MA205", type: "Theory" },
+    { code: "23CS406", type: "Theory" },
+    { code: "23CS407", type: "Theory" },
+    { code: "23AD401", type: "Theory" },
+    { code: "23AD406", type: "Theory + Lab" },
+    { code: "23HS101", type: "Theory" },
+    { code: "23AD406", type: "Theory" },
+    { code: "23AD407", type: "Lab" },
+    { code: "23CS409", type: "Lab" },
+    { code: "23ME701", type: "Theory" }
   ],
 
-  "Artificial Intelligence and Data Science": [
-    { code: "23CS405", type: "Theory + Lab" },
-    { code: "23EC304", type: "Theory + Lab" },
-    { code: "23CS404", type: "Theory" },
-    { code: "23CS403", type: "Theory" },
-    { code: "23MA203", type: "Theory" },
-    { code: "23IT403", type: "Theory" },
-    { code: "23IT404", type: "Lab" }
+  "Agricultural Engineering": [
+    { code: "23MA206", type: "Theory" },
+    { code: "23ME406", type: "Theory" },
+    { code: "23AG407", type: "Theory" },
+    { code: "23ME408", type: "Theory" },
+    { code: "23AG408", type: "Theory + Lab" },
+    { code: "23HS101", type: "Theory" },
+    { code: "23MC802", type: "Theory" },
+    { code: "23ME410", type: "Lab" }
   ],
 
   "Biomedical Engineering": [
-    { code: "23MA204", type: "Theory" },
-    { code: "23BM401", type: "Theory" },
-    { code: "23BM402", type: "Theory" },
-    { code: "23BM403", type: "Theory" },
-    { code: "23BM404", type: "Theory + Lab" },
-    { code: "23BM304", type: "Theory + Lab" },
-    { code: "23BM405", type: "Lab" }
+    { code: "23MA206", type: "Theory" },
+    { code: "23BM406", type: "Theory" },
+    { code: "23BM407", type: "Theory" },
+    { code: "23BM408", type: "Theory" },
+    { code: "23BM409", type: "Theory + Lab" },
+    { code: "23MC802", type: "Theory" },
+    { code: "23BM410", type: "Lab" },
+    { code: "23BM411", type: "Lab" },
+    { code: "23HS702", type: "Lab" },
+    { code: "23HS101", type: "Theory" }
   ],
 
   "Computer Science and Engineering": [
-    { code: "23MA203", type: "Theory" },
-    { code: "23CS403", type: "Theory" },
-    { code: "23IT402", type: "Theory" },
-    { code: "23CS404", type: "Theory" },
-    { code: "23EC304", type: "Theory + Lab" },
-    { code: "23CS405", type: "Theory + Lab" },
-    { code: "23IT403", type: "Lab" }
+    { code: "23MA205", type: "Theory" },
+    { code: "23CS406", type: "Theory" },
+    { code: "23CS407", type: "Theory" },
+    { code: "23AD405", type: "Theory + Lab" },
+    { code: "23CS408", type: "Theory + Lab" },
+    { code: "23HS101", type: "Theory" },
+    { code: "23CS409", type: "Lab" }
   ],
 
   "Cyber Security": [
-    { code: "23CB401", type: "Theory + Lab" },
-    { code: "23EC304", type: "Theory + Lab" },
-    { code: "23MA203", type: "Theory" },
-    { code: "23CS403", type: "Theory" },
-    { code: "23CS404", type: "Theory" },
-    { code: "23IT403", type: "Theory" },
-    { code: "23IT404", type: "Lab" }
+    { code: "23IT406", type: "Theory" },
+    { code: "23MA205", type: "Theory" },
+    { code: "23CS406", type: "Theory" },
+    { code: "23CS407", type: "Theory" },
+    { code: "23HS102", type: "Theory" },
+    { code: "23CB402", type: "Theory + Lab" },
+    { code: "23CS409", type: "Lab" },
+    { code: "23ME701", type: "Theory" }
   ],
 
   "Electronics and Communication Engineering": [
-    { code: "23MA204", type: "Theory" },
-    { code: "23EC401", type: "Theory" },
-    { code: "23EC402", type: "Theory" },
-    { code: "23EC403", type: "Theory" },
-    { code: "23EC404", type: "Theory + Lab" },
-    { code: "23EC405", type: "Theory + Lab" },
-    { code: "23EC407", type: "Lab" }
-  ],
-
-  "Information Technology": [
-    { code: "23MA204", type: "Theory" },
-    { code: "23IT401", type: "Theory" },
-    { code: "23CS404", type: "Theory" },
-    { code: "23IT402", type: "Theory" },
-    { code: "23EC304", type: "Theory + Lab" },
-    { code: "23CS405", type: "Theory + Lab" },
-    { code: "23IT403", type: "Lab" }
+    { code: "23MA206", type: "Theory" },
+    { code: "23EC408", type: "Theory" },
+    { code: "23EC409", type: "Theory" },
+    { code: "23EC410", type: "Theory + Lab" },
+    { code: "23EC411", type: "Theory + Lab" },
+    { code: "23HS101", type: "Theory" },
+    { code: "23HS702", type: "Theory" },
+    { code: "23MC802", type: "Theory" }
   ],
 
   "Mechanical Engineering": [
-    { code: "23MA204", type: "Theory" },
-    { code: "23ME404", type: "Theory + Lab" },
-    { code: "23ME401", type: "Theory" },
-    { code: "23ME402", type: "Theory" },
-    { code: "23ME403", type: "Theory" },
-    { code: "23ME405", type: "Lab" }
+    { code: "23MA206", type: "Theory" },
+    { code: "23ME406", type: "Theory" },
+    { code: "23ME407", type: "Theory" },
+    { code: "23ME408", type: "Theory" },
+    { code: "23HS101", type: "Theory" },
+    { code: "23ME409", type: "Theory + Lab" },
+    { code: "23ME410", type: "Lab" },
+    { code: "23ME411", type: "Lab" }
+  ],
+
+  "Information Technology": [
+    { code: "23MA205", type: "Theory" },
+    { code: "23CS406", type: "Theory" },
+    { code: "23CS403", type: "Theory" },
+    { code: "23IT404", type: "Theory" },
+    { code: "23AD402", type: "Theory + Lab" },
+    { code: "23ME701", type: "Theory" },
+    { code: "23HS102", type: "Theory" },
+    { code: "23CS409", type: "Lab" }
   ]
 };
   const maxMap = { Theory: 16, "Theory + Lab" :20, Lab: 20 };
